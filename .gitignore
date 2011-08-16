@@ -1,1 +1,4 @@
-www/Runtime/*
+www/Runtime/
+.buildpath
+.project
+.settings/
