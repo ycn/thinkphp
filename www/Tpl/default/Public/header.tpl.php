@@ -7,7 +7,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<title>Error - {&SITE_TITLE}</title>
+	<title>{$title} - {&SITE_NAME}</title>
 	<meta name="copyright" content="{&SITE_DOMAIN}" />
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -16,22 +16,22 @@
 	<link rel="shortcut icon" type="image/x-icon" href="{&STATIC_SERVER}/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="{&STATIC_SERVER}/css/common.css?{&STATIC_VERSION}" />
 	<script src="{&STATIC_SERVER}/js/bootstrap.js?{&STATIC_VERSION}"></script>
+
+	<present name="alTinyObj">
+	<script>alTiny.initialize({$alTinyObj});</script>
+	<literal>
 	<script>
-	Altiny.initialize({domain:'mydomain.com',scriptRoot:'http://s.mydomain.com/js'});
-	Altiny.ready = function(){alert('ready')};
+	$LAB.setOptions({BasePath: alTiny.app.scriptRoot + '/'})
+		.script('jquery.js')
+	</literal><present name="scriptQueue">
+		.wait().script({$scriptQueue})</present><literal>
+		.wait(function(){ alTiny.fireReady(); });
 	</script>
-	<script>
-	$LAB.setOptions({BasePath: Altiny.app.scriptRoot + '/'})
-		.script('jquery.js').wait(Altiny.doReady);
-	</script>
+	</literal>
+	</present>
+
 	<!--[if lt IE 7 ]>
 	<script type="text/javascript" src="{&STATIC_SERVER}/js/pngfix.js?{&STATIC_VERSION}"></script>
 	<![endif]-->
 </head>
 <body>
-	<h3>Welcome</h3>
-	<!--[if lt IE 7]>
-	<script>DD_belatedPNG.fix('.png');</script>
-	<![endif]-->
-</body>
-</html>

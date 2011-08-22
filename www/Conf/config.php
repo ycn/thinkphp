@@ -4,7 +4,6 @@ return  array(
 
     /* 项目设定 */
     'APP_DEBUG'				=> true,
-    'APP_GROUP_LIST'        => 'Home,Admin,User',
 
     /* Cookie设置 */
     'COOKIE_EXPIRE'         => 86400, // 1 day
@@ -28,6 +27,7 @@ return  array(
     'HTML_CACHE_TIME'		=> 60,
 
     /* 模板引擎设置 */
+	'TMPL_TEMPLATE_SUFFIX'  => '.tpl.php',
     'TMPL_ACTION_ERROR'     => 'Public:error',
     'TMPL_ACTION_SUCCESS'   => 'Public:success',
 	'TMPL_EXCEPTION_FILE'	=> TMPL_DIR.'/default/Exception.tpl.php',
@@ -44,8 +44,7 @@ return  array(
 	'STATIC_SERVER'			=> 'http://s.mydomain.com',
 	'STATIC_VERSION'		=> '1',
 	'SITE_DOMAIN'			=> 'mydomain.com',
-	'SITE_NAME'				=> 'Altiny',
+	'SITE_NAME'				=> 'alTiny',
 	'SITE_VERSION'			=> '0.1',
-	'SITE_TITLE'			=> 'Altiny',
 );
 ?>

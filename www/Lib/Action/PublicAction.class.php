@@ -1,21 +1,32 @@
 <?php
 class PublicAction extends Action {
+	protected $scriptQueue = array();
+
 	protected function _initialize () {
 		$isAjax = $this->isAjax();
 		if ($isAjax) {
-			_initializeAjax();
+			$this->initializeAjax();
 		}
 		else {
-			_initializeNoneAjax();
+			$this->initializeNoneAjax();
 		}
 	}
 	
-	protected function _initializeAjax () {
+	protected function initializeAjax () {
 		
 	}
 	
-	protected function _initializeNoneAjax () {
-		
+	protected function initializeNoneAjax () {
+		// build alTinyObj
+		$alTinyObj['domain'] = C('SITE_DOMAIN');
+		$alTinyObj['scriptRoot'] = C('STATIC_SERVER') . '/js';
+		$this->assign('alTinyObj', json_encode($alTinyObj));
+	
+		// js queue to load
+		if (!empty($this->scriptQueue)) {
+			$this->assign('scriptQueue', json_encode($scriptQueue));
+		}
 	}
+
 }
 ?>
